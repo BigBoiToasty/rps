@@ -72,7 +72,7 @@ function declareWinner(roomUniqueId){
             winner = "p1";
         }
     } else if (p1Choice == "Rock") {
-        if(p2Choice == "Scissor"){
+        if(p2Choice == "Paper"){
             winner = "p2";
         } else{
             winner = "p1";
@@ -93,8 +93,13 @@ function declareWinner(roomUniqueId){
     rooms[roomUniqueId].p2Choice = null;
 }
 
-server.listen(3000, () => {
-    console.log('listening on *:3000')
+// server.listen(3000, () => {
+//     console.log('listening on *:3000')
+// });
+
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
 
 function makeid(length){
